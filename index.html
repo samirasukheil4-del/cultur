@@ -1,499 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Civics: Culture | Tanzania Form IV | National Exam Focus</title>
-  <!-- Google Fonts & Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f4f9f5;
-      color: #1e2f2c;
-      line-height: 1.5;
-      padding: 1.5rem;
-    }
-
-    .culture-container {
-      max-width: 1300px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 2rem;
-      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-    }
-
-    /* header */
-    .topic-header {
-      background: linear-gradient(135deg, #1e5f4b, #0e4d3e);
-      color: white;
-      padding: 2rem 2rem 1.5rem 2rem;
-      border-bottom: 6px solid #f5b042;
-    }
-
-    .topic-header h1 {
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .topic-header h1 i {
-      background: #f5b042;
-      padding: 12px;
-      border-radius: 60px;
-      color: #0e4d3e;
-    }
-
-    .exam-badge {
-      display: inline-block;
-      background: #f5b042;
-      color: #1e3b32;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-top: 0.8rem;
-    }
-
-    /* content layout */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 1.5rem;
-      padding: 2rem;
-    }
-
-    @media (max-width: 900px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-      }
-    }
-
-    /* main lesson cards */
-    .lesson-card {
-      background: white;
-      border-radius: 1.5rem;
-      margin-bottom: 1.8rem;
-      border: 1px solid #e0ede7;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    }
-
-    .card-header {
-      background: #f6faf8;
-      padding: 1rem 1.5rem;
-      border-bottom: 2px solid #cbe5dd;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #1b5e4f;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card-body {
-      padding: 1.2rem 1.8rem;
-    }
-
-    .definition-box {
-      background: #fef9e8;
-      border-left: 6px solid #f5b042;
-      padding: 1rem 1.5rem;
-      border-radius: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .highlight {
-      background: #e0f0ea;
-      padding: 0.8rem 1.2rem;
-      border-radius: 1rem;
-      margin: 1rem 0;
-    }
-
-    .sub-list {
-      margin-left: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .sub-list li {
-      margin-bottom: 0.4rem;
-    }
-
-    .example-tz {
-      background: #eef4fc;
-      padding: 0.8rem 1.2rem;
-      border-radius: 1rem;
-      margin: 0.8rem 0;
-    }
-
-    /* sidebar for exam questions */
-    .exam-sidebar {
-      background: #fefcf5;
-      border-radius: 1.5rem;
-      border: 1px solid #e0ede7;
-      position: sticky;
-      top: 1rem;
-      height: fit-content;
-    }
-
-    .exam-header {
-      background: #f5b04220;
-      padding: 1rem;
-      border-bottom: 2px solid #f5b042;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #1b5e4f;
-    }
-
-    .exam-question {
-      padding: 1rem;
-      border-bottom: 1px solid #e0ede7;
-      cursor: pointer;
-      transition: background 0.1s;
-    }
-
-    .exam-question:hover {
-      background: #fef7e0;
-    }
-
-    .exam-question .q-text {
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .exam-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      background: #faf9f0;
-      margin-top: 0.5rem;
-      border-radius: 0.8rem;
-      font-size: 0.9rem;
-    }
-
-    .exam-question.active .exam-answer {
-      max-height: 300px;
-      padding: 0.8rem;
-      margin-top: 0.8rem;
-    }
-
-    .mark {
-      background: #1e6f5c;
-      color: white;
-      border-radius: 20px;
-      padding: 0.1rem 0.6rem;
-      font-size: 0.7rem;
-    }
-
-    footer {
-      background: #eef3f0;
-      padding: 1rem 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #2d6a5c;
-      border-top: 1px solid #cfe3dc;
-    }
-
-    @media (max-width: 700px) {
-      .card-body {
-        padding: 1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Civics: Globalization | Full Notes + 10-Question Quiz + Audio for Tanzanian Students</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f1f8f3;
+            font-family: 'Inter', sans-serif;
+            color: #1e2f2a;
+            line-height: 1.5;
+        }
+        .tz-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        /* Header with Tanzanian theme */
+        .hero-tz {
+            background: linear-gradient(135deg, #0A3323, #2B6E4F);
+            border-radius: 2rem;
+            padding: 2rem 2rem;
+            margin-bottom: 2rem;
+            color: white;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .hero-tz h1 {
+            font-size: 2.5rem;
+            font-family: 'Merriweather', serif;
+        }
+        .hero-tz h1 i {
+            margin-right: 12px;
+            color: #ffcd7e;
+        }
+        .flag-motto {
+            background: #FCD34D;
+            color: #0A3323;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+        .audio-box {
+            background: #2c5e42;
+            border-radius: 3rem;
+            padding: 0.7rem 1.2rem;
+            margin: 1rem auto 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .audio-box span {
+            font-weight: 500;
+        }
+        .audio-box button {
+            background: #ffcd7e;
+            border: none;
+            color: #1e3c2c;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .audio-box button:hover {
+            background: #ffbc4a;
+            transform: scale(0.97);
+        }
+        /* cards */
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 1.2rem 1.8rem;
+            background: #FEF7E6;
+            border-bottom: 4px solid #2B6E4F;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .card-header i {
+            font-size: 2rem;
+            color: #2B6E4F;
+        }
+        .card-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1E4A2F;
+        }
+        .card-body {
+            padding: 1.6rem 2rem;
+        }
+        .def-box {
+            background: #E8F3EC;
+            border-left: 6px solid #2B6E4F;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .grid-2col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 1rem 0;
+        }
+        .grid-2col > div {
+            flex: 1;
+            min-width: 220px;
+        }
+        .highlight-tz {
+            background: #FEF2E0;
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+        }
+        ul {
+            padding-left: 1.4rem;
+            margin: 0.8rem 0;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+        /* quiz area */
+        .quiz-wrapper {
+            background: #FEFAE9;
+            border-radius: 1.8rem;
+            padding: 1.8rem;
+            margin: 2rem 0 1rem;
+            border: 1px solid #FFE3A3;
+        }
+        .quiz-question {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 1.2rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .quiz-question p {
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+        .quiz-option {
+            display: block;
+            margin: 0.4rem 0 0.4rem 1rem;
+        }
+        button {
+            background: #2B6E4F;
+            color: white;
+            border: none;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 3rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+        button:hover {
+            background: #1E543C;
+        }
+        .feedback {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .correct {
+            color: #1f6e2f;
+        }
+        .wrong {
+            color: #bc4a2c;
+        }
+        .result-area {
+            background: #e2f0e6;
+            padding: 0.8rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: #5A7B66;
+            border-top: 1px solid #cce0d4;
+        }
+        @media (max-width: 750px) {
+            .tz-container {
+                padding: 1rem;
+            }
+            .card-header h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="culture-container">
-  <div class="topic-header">
-    <h1><i class="fas fa-mask"></i> Culture in Tanzania</h1>
-    <p>Definition · Aspects & Elements · Diversity · Positive & Negative Practices · Promotion · Preventive Care</p>
-    <div class="exam-badge"><i class="fas fa-file-alt"></i> National Exam Style Questions Included (CSEE)</div>
-  </div>
-
-  <div class="content-grid">
-    <!-- MAIN LESSON CONTENT (LEFT) -->
-    <div class="main-lesson">
-      <!-- 1. DEFINITION -->
-      <div class="lesson-card">
-        <div class="card-header"><i class="fas fa-book-open"></i> 1. Definition of Culture</div>
-        <div class="card-body">
-          <div class="definition-box">
-            <p><strong>Culture</strong> refers to the total way of life of a particular group of people. It includes their beliefs, customs, values, language, arts, laws, knowledge, and habits that are learned and shared from one generation to another.</p>
-            <p><em>“Culture is the collective programming of the mind that distinguishes members of one group from another.”</em></p>
-          </div>
-          <p><strong>Key characteristics:</strong> Culture is learned, shared, symbolic, dynamic, and integrated. It shapes identity and social behaviour.</p>
+<div class="tz-container">
+    <div class="hero-tz">
+        <h1><i class="fas fa-globe-africa"></i> Globalization: Civics for Tanzania</h1>
+        <div class="flag-motto"><i class="fas fa-heart"></i> Uhuru na Umoja | Comprehensive Notes + Audio & Quiz</div>
+        <!-- Audio Player Section: Text-to-Speech for key summary -->
+        <div class="audio-box">
+            <span><i class="fas fa-headphones"></i> 📢 Audio Summary (Click to listen)</span>
+            <button id="playAudioBtn"><i class="fas fa-play"></i> Play Lesson Highlights</button>
+            <button id="stopAudioBtn"><i class="fas fa-stop"></i> Stop</button>
         </div>
-      </div>
+    </div>
 
-      <!-- 2. ASPECTS AND ELEMENTS OF CULTURE -->
-      <div class="lesson-card">
-        <div class="card-header"><i class="fas fa-puzzle-piece"></i> 2. Aspects & Elements of Culture</div>
-        <div class="card-body">
-          <p><strong>Aspects of culture</strong> refer to broad categories or dimensions:</p>
-          <ul class="sub-list">
-            <li><strong>Material culture:</strong> physical objects – tools, clothing, houses, technology.</li>
-            <li><strong>Non-material culture:</strong> beliefs, values, norms, language, rituals.</li>
-          </ul>
-          <div class="highlight">
-            <strong>📌 Elements of culture (core components):</strong>
-            <ul class="sub-list" style="margin-top: 0.5rem;">
-              <li><i class="fas fa-comments"></i> <strong>Language:</strong> Kiswahili as national language, tribal languages (e.g., Sukuma, Chaga, Maasai).</li>
-              <li><i class="fas fa-praying-hands"></i> <strong>Religion & Beliefs:</strong> Christianity, Islam, African traditional beliefs.</li>
-              <li><i class="fas fa-utensils"></i> <strong>Cuisine:</strong> Ugali, nyama choma, pilau, ndizi, local vegetables.</li>
-              <li><i class="fas fa-music"></i> <strong>Arts, Music & Dance:</strong> Ngoma dances, Tinga Tinga paintings, Bongo Flava.</li>
-              <li><i class="fas fa-gavel"></i> <strong>Customs & Norms:</strong> Greetings (Shikamoo), respect for elders, communal work (Ujamaa spirit).</li>
-              <li><i class="fas fa-tshirt"></i> <strong>Dress:</strong> Kitenge, Khanga, Kanzu, traditional Maasai shuka.</li>
-            </ul>
-          </div>
+    <!-- 1. DEFINITION & ASPECTS -->
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-book-open"></i>
+            <h2>📖 Definition & Major Aspects of Globalization</h2>
         </div>
-      </div>
-
-      <!-- 3. CULTURAL DIVERSITY IN TANZANIA -->
-      <div class="lesson-card">
-        <div class="card-header"><i class="fas fa-users"></i> 3. Cultural Diversity in Tanzania</div>
         <div class="card-body">
-          <p>Tanzania has over <strong>120 ethnic groups</strong>, each with unique traditions, languages, and customs. Major groups include: <strong>Sukuma, Nyamwezi, Chaga, Haya, Maasai, Zaramo, and many more.</strong></p>
-          <div class="example-tz">
-            <i class="fas fa-map-marker-alt"></i> <strong>Examples of diversity:</strong><br>
-            - <strong>Maasai:</strong> Pastoralism, unique dress, jumping dance (adumu).<br>
-            - <strong>Chaga:</strong> Banana farming, kihamba system, traditional ngoma.<br>
-            - <strong>Zanzibar:</strong> Swahili architecture, taarab music, Islamic influences.<br>
-            - <strong>Sukuma:</strong> Largest ethnic group, famous for bugobobobo dance.
-          </div>
-          <p><strong>Importance of diversity:</strong> National unity (Umoja), tourism attraction, cultural exchange, and enrichment of national identity. The government promotes unity through <strong>“Unity in Diversity” (Umoja katika Utofauti).</strong></p>
-        </div>
-      </div>
-
-      <!-- 4. POSITIVE AND NEGATIVE CULTURAL PRACTICES -->
-      <div class="lesson-card">
-        <div class="card-header"><i class="fas fa-balance-scale"></i> 4. Positive & Negative Cultural Practices</div>
-        <div class="card-body">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <div style="background: #e6f4ea; padding: 0.8rem; border-radius: 1rem;">
-              <h3><i class="fas fa-check-circle" style="color: #2a7f49;"></i> Positive Practices</h3>
-              <ul class="sub-list">
-                <li>Respect for elders (Shikamoo)</li>
-                <li>Communal work (Ujamaa, Nyakitontono)</li>
-                <li>Hospitality and generosity</li>
-                <li>Strong family ties & lineage</li>
-                <li>Preserving traditional medicine & knowledge</li>
-                <li>Rites of passage (positive guidance)</li>
-              </ul>
+            <div class="def-box">
+                <i class="fas fa-quote-left"></i> <strong>Globalization</strong> is the process of increasing integration and interdependence among countries through cross-border flows of goods, services, capital, technology, information, and people. It links local events to global forces.
             </div>
-            <div style="background: #fde7e7; padding: 0.8rem; border-radius: 1rem;">
-              <h3><i class="fas fa-times-circle" style="color: #c7362b;"></i> Negative Practices</h3>
-              <ul class="sub-list">
-                <li>Female Genital Mutilation (FGM)</li>
-                <li>Child marriage</li>
-                <li>Witchcraft accusations</li>
-                <li>Gender discrimination in inheritance</li>
-                <li>Albino killings (myth-based)</li>
-                <li>Excessive bride price (dowry burden)</li>
-              </ul>
+            <div class="grid-2col">
+                <div>
+                    <p><strong><i class="fas fa-chart-line"></i> Economic:</strong> Global trade, FDI, MNCs, supply chains.</p>
+                    <p><strong><i class="fas fa-users"></i> Social/Cultural:</strong> Spread of ideas, music, values, digital communities.</p>
+                </div>
+                <div>
+                    <p><strong><i class="fas fa-landmark"></i> Political:</strong> International bodies (UN, WTO, AU), global treaties.</p>
+                    <p><strong><i class="fas fa-microchip"></i> Technological:</strong> Internet, mobile phones, global knowledge sharing.</p>
+                    <p><strong><i class="fas fa-leaf"></i> Environmental:</strong> Cross-border climate challenges and cooperation.</p>
+                </div>
             </div>
-          </div>
-          <div class="highlight" style="margin-top: 1rem;">
-            <i class="fas fa-gavel"></i> <strong>Civic responsibility:</strong> Tanzanian laws (Sexual Offences Special Provisions Act, Anti-FGM laws) prohibit harmful practices. Citizens must report and eradicate negative traditions.
-          </div>
+            <div class="highlight-tz">
+                <i class="fas fa-flag-tanzania"></i> <strong>Tanzania in focus:</strong> Globalization connects Tanzanian farmers to world markets (coffee, cashew nuts, gold) and brings foreign investments like digital infrastructure.
+            </div>
         </div>
-      </div>
+    </div>
 
-      <!-- 5. PROMOTION OF NATIONAL CULTURE -->
-      <div class="lesson-card">
-        <div class="card-header"><i class="fas fa-flag-checkered"></i> 5. Promotion of National Culture</div>
-        <div class="card-body">
-          <p>The Tanzanian government promotes national culture through:</p>
-          <ul class="sub-list">
-            <li><strong>National festivals:</strong> Nane Nane (farmers' day), Saba Saba, Independence Day celebrations showcasing cultural dances.</li>
-            <li><strong>Cultural institutions:</strong> National Arts Council (BASATA), National Museum, Bagamoyo College of Arts.</li>
-            <li><strong>Education curriculum:</strong> Teaching Kiswahili and cultural values in schools.</li>
-            <li><strong>Media & Arts:</strong> Promoting local music (Bongo Flava, traditional ngoma) through radio and TV.</li>
-            <li><strong>Cultural tourism:</strong> Maasai bomas, Zanzibar Stone Town, tribal festivals.</li>
-          </ul>
-          <div class="example-tz">
-            <i class="fas fa-lightbulb"></i> <strong>Student role:</strong> Participate in cultural clubs, wear kitenge with pride, learn traditional dances, respect national symbols and heritage.
-          </div>
+    <!-- 2. DRIVING FORCES -->
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-tachometer-alt"></i>
+            <h2>⚙️ Driving Forces of Globalization</h2>
         </div>
-      </div>
-
-      <!-- 6. CULTURE OF PREVENTIVE CARE & MAINTENANCE OF PROPERTY -->
-      <div class="lesson-card">
-        <div class="card-header"><i class="fas fa-tools"></i> 6. Preventive Care & Maintenance of Property</div>
         <div class="card-body">
-          <p><strong>Culture of preventive care</strong> means having a mindset and practice of regularly maintaining personal and public property to avoid damage, prolong lifespan, and save resources.</p>
-          <div class="highlight">
-            <strong>📌 Examples of preventive care culture:</strong>
-            <ul class="sub-list">
-              <li>Cleaning classrooms, hospitals, and markets (public hygiene).</li>
-              <li>Repairing leaking taps to save water.</li>
-              <li>Regular servicing of school desks, computers, and tools.</li>
-              <li>Planting trees and protecting environment.</li>
-              <li>Proper use of roads, traffic lights, and public latrines.</li>
+            <ul>
+                <li><i class="fas fa-microchip"></i> <strong>Technological revolution:</strong> Internet, mobile phones (M-Pesa in Tanzania), low-cost transport.</li>
+                <li><i class="fas fa-handshake"></i> <strong>Trade liberalization:</strong> WTO agreements, EAC integration, reduced tariffs.</li>
+                <li><i class="fas fa-chart-pie"></i> <strong>Global financial systems:</strong> Capital mobility, foreign direct investment.</li>
+                <li><i class="fas fa-plane-departure"></i> <strong>Transportation efficiency:</strong> Container shipping linking Dar es Salaam port.</li>
+                <li><i class="fas fa-building"></i> <strong>Multinational corporations (MNCs):</strong> Coca-Cola, Unilever, etc.</li>
+                <li><i class="fas fa-newspaper"></i> <strong>Global media & digital connectivity:</strong> Social media, global news.</li>
             </ul>
-          </div>
-          <p><strong>Importance:</strong> Reduces government expenditure, ensures sustainability, builds civic responsibility, and promotes national development. <em>“Kila Mtanzania aweze kulinda na kutunza mali ya umma.”</em></p>
         </div>
-      </div>
     </div>
 
-    <!-- RIGHT SIDEBAR: EXAM QUESTIONS (PAST PAPERS STYLE) -->
-    <div class="exam-sidebar">
-      <div class="exam-header">
-        <i class="fas fa-question-circle"></i> National Exam Style Questions<br>
-        <span style="font-size: 0.8rem;">CSEE Civics | Click to reveal answers</span>
-      </div>
-
-      <!-- Q1 -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 1. Define culture and explain any four elements of culture.</span>
-          <span class="mark">(5 marks)</span>
+    <!-- 3. STRUCTURAL ADJUSTMENT PROGRAM (SAP) -->
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-chart-line"></i>
+            <h2>📉 Structural Adjustment Programs (SAPs) – Definition, Objectives, Criticism & Achievements</h2>
         </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> Culture is the total way of life of a people including beliefs, customs, arts, etc. <br> Elements: Language (Kiswahili), Religion (Christianity/Islam), Cuisine (ugali), Arts (ngoma music), Customs (respect for elders), Dress (kitenge) — any 4 explained.
+        <div class="card-body">
+            <div class="def-box" style="background:#EDF4FA; border-left-color:#3A7CA5;">
+                <strong>📌 Definition:</strong> SAPs are economic policies imposed by IMF and World Bank on developing countries (including Tanzania in 1980s–90s) as loan conditions: privatization, deregulation, trade liberalization, reduced government spending.
+            </div>
+            <div class="grid-2col">
+                <div><strong>🎯 Objectives:</strong> Reduce deficits & inflation; export-led growth; privatize state firms; attract FDI.</div>
+                <div><strong>⚠️ Criticisms:</strong> Deepened poverty; cuts in health/education; loss of sovereignty; deindustrialization.</div>
+                <div><strong>🏆 Achievements:</strong> Stabilized hyperinflation; fiscal discipline; boosted exports in some nations.</div>
+            </div>
+            <div class="highlight-tz">
+                <i class="fas fa-tanzania"></i> <strong>SAPs in Tanzania:</strong> Under President Mwinyi, reforms included devaluation of shilling, removing price controls, privatization. While inflation reduced, social hardships emerged (retrenchments, reduced health budgets). Later, Tanzania adopted poverty reduction strategies (MKUKUTA).
+            </div>
         </div>
-      </div>
-      <!-- Q2 -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 2. Show how cultural diversity in Tanzania promotes national unity.</span>
-          <span class="mark">(4 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> Tanzania has over 120 ethnic groups living peacefully. Diversity promotes national unity through: intermarriages, shared language (Kiswahili), national festivals, respect for all tribes, and the policy of "Unity in Diversity".
-        </div>
-      </div>
-      <!-- Q3 -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 3. Identify three negative cultural practices in Tanzania and suggest solutions.</span>
-          <span class="mark">(6 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> Negative practices: FGM, child marriage, witchcraft accusations. Solutions: enforce anti-FGM laws, educate communities on dangers, provide alternative rites of passage, empower girls through education.
-        </div>
-      </div>
-      <!-- Q4 -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 4. Explain the importance of promoting national culture in Tanzania.</span>
-          <span class="mark">(5 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> Promotes national identity, attracts tourism, preserves heritage, strengthens patriotism, reduces cultural erosion from globalization, and instills moral values in youth.
-        </div>
-      </div>
-      <!-- Q5 -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 5. What is "culture of preventive care"? Give three examples.</span>
-          <span class="mark">(4 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> Preventive care culture is the habit of maintaining property regularly to avoid damage. Examples: repairing school desks, cleaning public toilets, servicing water pumps, planting trees, conserving electricity.
-        </div>
-      </div>
-      <!-- Q6 -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 6. Distinguish between material and non-material culture.</span>
-          <span class="mark">(3 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> Material culture includes physical objects (houses, tools, clothes). Non-material culture includes beliefs, values, norms, language, and traditions. Both form the complete cultural system.
-        </div>
-      </div>
-      <!-- Q7 (Essay type) -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 7. Discuss four positive cultural practices in Tanzania that should be preserved.</span>
-          <span class="mark">(8 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> 1) Respect for elders (Shikamoo) — strengthens social harmony. 2) Communal work (Ujamaa) — boosts development. 3) Traditional dances — preserve heritage. 4) Hospitality — attracts tourists. Any other relevant.
-        </div>
-      </div>
-      <!-- Q8 -->
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 8. Why is it important for Tanzanian youth to maintain a culture of preventive care?</span>
-          <span class="mark">(4 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> It reduces waste of public funds, develops sense of responsibility, prolongs lifespan of infrastructure, and builds a self-reliant nation as per Arusha Declaration principles.
-        </div>
-      </div>
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 9. How does globalization threaten Tanzanian culture? (Necta style)</span>
-          <span class="mark">(5 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> Globalization leads to cultural erosion through foreign media (Western values), loss of language, change in dressing (westernization), decline of traditional music, and weakening of local customs. Youth adopt foreign lifestyles.
-        </div>
-      </div>
-      <div class="exam-question" onclick="this.classList.toggle('active')">
-        <div class="q-text">
-          <span>📝 10. Mention three government strategies to promote national culture.</span>
-          <span class="mark">(3 marks)</span>
-        </div>
-        <div class="exam-answer">
-          <strong>Answer:</strong> 1) Establishing cultural centers (Bagamoyo). 2) Supporting BASATA to regulate arts. 3) Including cultural lessons in school curriculum. 4) Celebrating Nane Nane and cultural festivals.
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- EXTRA REVISION TABLE -->
-  <div style="padding: 0 2rem 1rem 2rem;">
-    <div class="lesson-card" style="margin-bottom: 1rem;">
-      <div class="card-header"><i class="fas fa-chalkboard"></i> Quick Revision Table for Exams</div>
-      <div class="card-body">
-        <div style="overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; background: #fefef5;">
-            <tr style="background: #1e6f5c; color: white;">
-              <th style="padding: 8px; border: 1px solid #cfe3dc;">Topic</th>
-              <th style="padding: 8px; border: 1px solid #cfe3dc;">Key Points (Exam keywords)</th>
-            </tr>
-            <tr><td style="padding: 8px; border: 1px solid #cfe3dc;">Definition of Culture</td><td style="padding: 8px; border: 1px solid #cfe3dc;">Way of life, learned, shared, dynamic, beliefs, customs</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #cfe3dc;">Elements of Culture</td><td style="padding: 8px; border: 1px solid #cfe3dc;">Language, religion, cuisine, arts, norms, dress, technology</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #cfe3dc;">Cultural Diversity (Tz)</td><td style="padding: 8px; border: 1px solid #cfe3dc;">120+ ethnic groups, Sukuma, Maasai, Chaga, unity in diversity</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #cfe3dc;">Negative Practices</td><td style="padding: 8px; border: 1px solid #cfe3dc;">FGM, child marriage, albino killings, witchcraft</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #cfe3dc;">Promotion of Culture</td><td style="padding: 8px; border: 1px solid #cfe3dc;">BASATA, festivals, curriculum, cultural tourism</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #cfe3dc;">Preventive care culture</td><td style="padding: 8px; border: 1px solid #cfe3dc;">Maintenance, cleaning, repair, responsible citizenship</td></tr>
-          </table>
+    <!-- 4. IMPORTANCE + EFFECTS ON TANZANIA -->
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-chart-simple"></i>
+            <h2>🌍 Importance & Effects of Globalization on Tanzania</h2>
         </div>
-      </div>
+        <div class="card-body">
+            <div class="grid-2col">
+                <div>
+                    <h3>✅ Positive Effects</h3>
+                    <ul>
+                        <li>Access to international markets for cash crops (coffee, cashew nuts).</li>
+                        <li>Foreign investment in mining, tourism, telecom (Vodacom, Airtel).</li>
+                        <li>Mobile money revolution (M-Pesa, Tigo Pesa).</li>
+                        <li>Infrastructure projects financed by global partners (SGR railway).</li>
+                        <li>Technology transfer & improved health partnerships.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>⚠️ Negative Effects (incl. environment)</h3>
+                    <ul>
+                        <li>Deindustrialization: local textile industries collapsed due to cheap imports.</li>
+                        <li>Income inequality & urban-rural gap.</li>
+                        <li>Carbon emissions from global transport, deforestation for exports.</li>
+                        <li>Overfishing by foreign vessels & plastic pollution.</li>
+                        <li>Cultural erosion: Western media influence.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-tz">
+                <strong><i class="fas fa-leaf"></i> Environmental focus in Tanzania:</strong> Climate change affects agriculture (unpredictable rains in Arusha, Kilimanjaro); rising sea levels threaten Dar es Salaam. Global cooperation also brings renewable energy investments.
+            </div>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    <i class="fas fa-flag-tanzania"></i> Civics Form IV — Culture Topic | Aligned with Tanzania Syllabus & CSEE Examination Pattern<br>
-    Promote positive culture, preserve heritage, and practice preventive care for sustainable development.
-  </footer>
+    <!-- ===================== 10-QUESTION QUIZ =================== -->
+    <div class="quiz-wrapper">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1rem;">
+            <i class="fas fa-pen-alt" style="font-size: 2rem; color:#D68B2C;"></i>
+            <h2 style="color:#2c5a2e;">📝 Self-Assessment: 10-Question Quiz (Tanzania Context)</h2>
+        </div>
+        <div id="tenQuizContainer">
+            <!-- Q1 -->
+            <div class="quiz-question" data-correct="b">
+                <p>1️⃣ What is the best definition of globalization?</p>
+                <label class="quiz-option"><input type="radio" name="q1" value="a"> a) A policy of national self-sufficiency</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="b"> b) Increasing interdependence among countries through trade, tech & culture</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="c"> c) Banning foreign imports</label>
+                <div class="feedback" id="fb1"></div>
+            </div>
+            <!-- Q2 -->
+            <div class="quiz-question" data-correct="a">
+                <p>2️⃣ Which is a major driving force of globalization?</p>
+                <label class="quiz-option"><input type="radio" name="q2" value="a"> a) Technological advancements (internet, shipping)</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="b"> b) Increasing trade tariffs</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="c"> c) Reducing foreign direct investment</label>
+                <div class="feedback" id="fb2"></div>
+            </div>
+            <!-- Q3 -->
+            <div class="quiz-question" data-correct="b">
+                <p>3️⃣ One main objective of Structural Adjustment Programs (SAPs) was:</p>
+                <label class="quiz-option"><input type="radio" name="q3" value="a"> a) Increase government spending on subsidies</label>
+                <label class="quiz-option"><input type="radio" name="q3" value="b"> b) Privatize state-owned enterprises & reduce fiscal deficits</label>
+                <label class="quiz-option"><input type="radio" name="q3" value="c"> c) Nationalize all foreign companies</label>
+                <div class="feedback" id="fb3"></div>
+            </div>
+            <!-- Q4 -->
+            <div class="quiz-question" data-correct="c">
+                <p>4️⃣ Which is a criticism of SAPs in Tanzania during the 1980s-90s?</p>
+                <label class="quiz-option"><input type="radio" name="q4" value="a"> a) Increased free healthcare for all</label>
+                <label class="quiz-option"><input type="radio" name="q4" value="b"> b) Expansion of local industries</label>
+                <label class="quiz-option"><input type="radio" name="q4" value="c"> c) Reduction in social services like education due to austerity</label>
+                <div class="feedback" id="fb4"></div>
+            </div>
+            <!-- Q5 -->
+            <div class="quiz-question" data-correct="b">
+                <p>5️⃣ Which is a positive effect of globalization specifically for Tanzania?</p>
+                <label class="quiz-option"><input type="radio" name="q5" value="a"> a) Complete elimination of foreign debt</label>
+                <label class="quiz-option"><input type="radio" name="q5" value="b"> b) Access to mobile money (M-Pesa) and foreign telecom investment</label>
+                <label class="quiz-option"><input type="radio" name="q5" value="c"> c) Ban on all imported goods</label>
+                <div class="feedback" id="fb5"></div>
+            </div>
+            <!-- Q6 -->
+            <div class="quiz-question" data-correct="c">
+                <p>6️⃣ Which environmental problem is worsened by globalization in Tanzania?</p>
+                <label class="quiz-option"><input type="radio" name="q6" value="a"> a) Less plastic pollution</label>
+                <label class="quiz-option"><input type="radio" name="q6" value="b"> b) Reduction in carbon emissions</label>
+                <label class="quiz-option"><input type="radio" name="q6" value="c"> c) Deforestation driven by global demand for agricultural exports</label>
+                <div class="feedback" id="fb6"></div>
+            </div>
+            <!-- Q7 -->
+            <div class="quiz-question" data-correct="a">
+                <p>7️⃣ What does “liberalization” in SAPs refer to?</p>
+                <label class="quiz-option"><input type="radio" name="q7" value="a"> a) Opening economies to free trade and reducing barriers</label>
+                <label class="quiz-option"><input type="radio" name="q7" value="b"> b) Increasing protectionist policies</label>
+                <label class="quiz-option"><input type="radio" name="q7" value="c"> c) Nationalizing industries</label>
+                <div class="feedback" id="fb7"></div>
+            </div>
+            <!-- Q8 -->
+            <div class="quiz-question" data-correct="b">
+                <p>8️⃣ Which global institution is most associated with imposing Structural Adjustment Programs?</p>
+                <label class="quiz-option"><input type="radio" name="q8" value="a"> a) United Nations (UN)</label>
+                <label class="quiz-option"><input type="radio" name="q8" value="b"> b) International Monetary Fund (IMF) and World Bank</label>
+                <label class="quiz-option"><input type="radio" name="q8" value="c"> c) African Union (AU)</label>
+                <div class="feedback" id="fb8"></div>
+            </div>
+            <!-- Q9 -->
+            <div class="quiz-question" data-correct="c">
+                <p>9️⃣ One negative effect of globalization on Tanzanian local industries is:</p>
+                <label class="quiz-option"><input type="radio" name="q9" value="a"> a) Increased demand for local textiles</label>
+                <label class="quiz-option"><input type="radio" name="q9" value="b"> b) Growth of traditional crafts only</label>
+                <label class="quiz-option"><input type="radio" name="q9" value="c"> c) Collapse of local textile and shoe industries due to cheap imports</label>
+                <div class="feedback" id="fb9"></div>
+            </div>
+            <!-- Q10 -->
+            <div class="quiz-question" data-correct="a">
+                <p>🔟 The East African Community (EAC) is an example of which aspect of globalization?</p>
+                <label class="quiz-option"><input type="radio" name="q10" value="a"> a) Political & economic integration</label>
+                <label class="quiz-option"><input type="radio" name="q10" value="b"> b) Environmental isolation</label>
+                <label class="quiz-option"><input type="radio" name="q10" value="c"> c) Cultural rejection</label>
+                <div class="feedback" id="fb10"></div>
+            </div>
+        </div>
+        <button id="submitTenQuiz">✅ Submit Quiz & Get Score</button>
+        <div id="tenQuizResult" class="result-area"></div>
+    </div>
+
+    <footer>
+        <i class="fas fa-chalkboard-teacher"></i> Civics for Tanzanian Secondary Schools | Topic: Globalization — definitions, SAPs, driving forces, environmental effects, and local impacts. <br>📢 Audio summary uses browser text-to-speech. Study well, TZ!
+    </footer>
 </div>
 
 <script>
-  // ensure no conflicts with answer toggling
-  document.querySelectorAll('.exam-question').forEach(item => {
-    item.addEventListener('click', function(e) {
-      // allow toggling even if inside text, but stop propagation if needed
-      e.stopPropagation();
-      this.classList.toggle('active');
+    // Text-to-Speech Audio Functionality (English, natural)
+    const lessonText = `Globalization is the increasing integration and interdependence of countries through trade, technology, culture, and politics. Key aspects include economic, social, political, technological and environmental dimensions. Driving forces: technological advances, trade liberalization, global finance, multinational corporations, and transport revolution. Structural Adjustment Programs or SAPs are economic reforms imposed by IMF and World Bank to reduce deficits, privatize state firms and liberalize trade. Criticisms include poverty, reduced social spending, loss of sovereignty. Achievements include inflation control and fiscal discipline. In Tanzania, SAPs caused hardships but also market reforms. Positive effects of globalization on Tanzania include mobile money like M-Pesa, foreign investment in mining and telecom, access to export markets. Negative effects include deindustrialization, income inequality, deforestation, and environmental harm such as plastic pollution and overfishing. Understanding globalization helps Tanzanian students become informed global citizens.`;
+    
+    let synth = window.speechSynthesis;
+    let currentUtterance = null;
+    
+    function speakText(text) {
+        if (synth.speaking) {
+            synth.cancel();
+        }
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.95;
+        utterance.pitch = 1;
+        currentUtterance = utterance;
+        synth.speak(utterance);
+    }
+    
+    document.getElementById('playAudioBtn').addEventListener('click', () => {
+        speakText(lessonText);
     });
-  });
+    
+    document.getElementById('stopAudioBtn').addEventListener('click', () => {
+        if (synth.speaking) {
+            synth.cancel();
+        }
+    });
+    
+    // 10-Question Quiz Logic
+    document.getElementById('submitTenQuiz').addEventListener('click', function() {
+        let score = 0;
+        const total = 10;
+        for (let i = 1; i <= total; i++) {
+            const questionDiv = document.querySelector(`.quiz-question[data-correct]`); // we will select by nth? better dynamic
+        }
+        // More robust: select all .quiz-question inside #tenQuizContainer
+        const questions = document.querySelectorAll('#tenQuizContainer .quiz-question');
+        questions.forEach((q, idx) => {
+            const selected = q.querySelector('input[type="radio"]:checked');
+            const correctVal = q.getAttribute('data-correct');
+            const feedbackDiv = q.querySelector('.feedback');
+            if (selected && selected.value === correctVal) {
+                score++;
+                feedbackDiv.innerHTML = '<i class="fas fa-check-circle"></i> ✔ Correct!';
+                feedbackDiv.className = 'feedback correct';
+            } else if (selected && selected.value !== correctVal) {
+                let correctLetter = '';
+                if (correctVal === 'a') correctLetter = 'A';
+                else if (correctVal === 'b') correctLetter = 'B';
+                else correctLetter = 'C';
+                feedbackDiv.innerHTML = `<i class="fas fa-times-circle"></i> ❌ Incorrect. Correct answer is option ${correctLetter}.`;
+                feedbackDiv.className = 'feedback wrong';
+            } else {
+                feedbackDiv.innerHTML = '⚠️ No answer selected. Please choose an option.';
+                feedbackDiv.className = 'feedback wrong';
+            }
+        });
+        let message = '';
+        if (score === total) message = '🏆 Perfect! You have mastered globalization concepts and Tanzanian perspective!';
+        else if (score >= 7) message = '👍 Very good! Review a few details about SAPs and environmental effects to reach excellence.';
+        else message = '📚 Keep studying — re-read the notes on Structural Adjustment Programs, driving forces, and effects on Tanzania.';
+        document.getElementById('tenQuizResult').innerHTML = `🎯 Your score: ${score} / ${total}. ${message}`;
+        document.getElementById('tenQuizResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
 </script>
 </body>
 </html>
